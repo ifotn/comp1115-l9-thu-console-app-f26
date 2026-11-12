@@ -105,3 +105,27 @@ bool result = IsPassing(51);
 Console.WriteLine($"Score of 51 gives passing result: {result}");
 result = IsPassing(49);
 Console.WriteLine($"Score of 49 gives passing result: {result}");
+
+// var available to entire file (not in any method, so any method can use it)
+string course = "COMP1115";
+
+/// <summary>
+/// show course with public variable
+/// </summary>
+void ShowPublicCourseVar()
+{
+    Console.WriteLine($"Showing course from inside method: {course}");
+}
+
+ShowPublicCourseVar();
+Console.WriteLine($"Showing course from outside method: {course}");
+
+void ShowPrivateCourseVar()
+{
+    string newCourse = "COMP1009";
+    Console.WriteLine($"Showing new course from inside method: {newCourse}");
+}
+
+ShowPrivateCourseVar();
+// Commenting next line as it won't build.  newCourse var only available in ShowPrivateCourseVar()
+// Console.WriteLine($"Showing new course from outside method: {newCourse}");
